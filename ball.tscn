@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhkkv17vyu25s"]
+
+[ext_resource type="Script" uid="uid://dqx8moqbqdgh6" path="res://ball.gd" id="1_2x3yt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbx31"]
+radius = 35.0
+
+[node name="Ball" type="Area2D"]
+process_mode = 1
+script = ExtResource("1_2x3yt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cbx31")
+one_way_collision_margin = 0.0

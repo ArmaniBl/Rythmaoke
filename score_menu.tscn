@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo4f4yk3605g7"]
+
+[ext_resource type="Script" uid="uid://ca3x3t5r2vtjr" path="res://score_menu.gd" id="1_score"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.5
+glow_bloom = 0.5
+glow_blend_mode = 0
+glow_hdr_threshold = 0.1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1"]
+blend_mode = 1
+
+[node name="ScoreMenu" type="Node2D"]
+script = ExtResource("1_score")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="StatsLabel" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_1")
+offset_left = 380.0
+offset_top = 110.0
+offset_right = 754.0
+offset_bottom = 400.0
+theme_override_colors/font_color = Color(0.8, 0.2, 1, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="Repeat" type="Button" parent="."]
+offset_left = 389.0
+offset_top = 429.0
+offset_right = 456.0
+offset_bottom = 460.0
+theme_override_colors/font_color = Color(0.8, 0.2, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Заново"
+flat = true
+
+[node name="NewGame" type="Button" parent="."]
+offset_left = 610.0
+offset_top = 429.0
+offset_right = 717.0
+offset_bottom = 460.0
+theme_override_colors/font_color = Color(0.8, 0.2, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Новая игра"
+flat = true
+
+[connection signal="pressed" from="Repeat" to="." method="_on_repeat_pressed"]
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]

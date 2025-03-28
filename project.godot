@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="MusBaroke"
+run/main_scene="uid://p6kopkftvxki"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="uid://wtmlugmy8mjr"
+
+[audio]
+
+buses/default_bus_layout=""
+
+[autoload]
+
+Global="*res://global.gd"
+Settings="*res://settings.gd"
+GameSettings="*res://game_settings.gd"
+Translations="*res://translations.gd"
+WindowManager="*res://window_manager.gd"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

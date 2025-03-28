@@ -1,0 +1,153 @@
+[gd_scene load_steps=6 format=3 uid="uid://t4h4i1g5wmcf"]
+
+[ext_resource type="Script" uid="uid://s8yqd6gxepu4" path="res://playground.gd" id="1_rupst"]
+[ext_resource type="Script" uid="uid://hafe36r3bp1o" path="res://label_effect.gd" id="3_label_effect"]
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.5
+glow_bloom = 0.5
+glow_blend_mode = 0
+glow_hdr_threshold = 0.1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rupst"]
+size = Vector2(159.084, 10)
+
+[node name="Playground" type="Node2D"]
+process_mode = 3
+position = Vector2(-1, -1)
+script = ExtResource("1_rupst")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_mode = 1
+environment = SubResource("Environment_1")
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("CanvasItemMaterial_1")
+position = Vector2(9.53684, 601.806)
+scale = Vector2(2.07499, 1.12777)
+points = PackedVector2Array(-3, 2, 1149, 2)
+width = 4.0
+default_color = Color(0.8, 0.2, 1, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+material = SubResource("CanvasItemMaterial_1")
+position = Vector2(9.54891, 501.807)
+scale = Vector2(2.07671, 1.1287)
+points = PackedVector2Array(-3, 2, 507.933, 2, 1149, 2)
+width = 4.0
+default_color = Color(0.8, 0.2, 1, 1)
+
+[node name="Line2D5" type="Line2D" parent="."]
+material = SubResource("CanvasItemMaterial_1")
+position = Vector2(10.5248, 451.804)
+scale = Vector2(2.07327, 1.12683)
+points = PackedVector2Array(-3, 2, 507.933, 2, 1149, 2)
+width = 4.0
+default_color = Color(0.8, 0.2, 1, 1)
+
+[node name="Line2D3" type="Line2D" parent="."]
+material = SubResource("CanvasItemMaterial_1")
+position = Vector2(9.53684, 551.806)
+scale = Vector2(2.07499, 1.12777)
+points = PackedVector2Array(-3, 2, 507.933, 2, 1149, 2)
+width = 4.0
+default_color = Color(0.8, 0.2, 1, 1)
+
+[node name="Bar" type="Line2D" parent="."]
+process_mode = 1
+z_index = 6
+material = SubResource("CanvasItemMaterial_1")
+position = Vector2(233.8, 60.5365)
+rotation = 1.5708
+scale = Vector2(1.59642, 2.65)
+points = PackedVector2Array(211, 7, 370, 7)
+width = 4.0
+default_color = Color(0.8, 0.2, 1, 1)
+
+[node name="Bar" type="Area2D" parent="Bar"]
+position = Vector2(290.941, 5.99832)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/Bar"]
+position = Vector2(-1.87918, 1.00002)
+shape = SubResource("RectangleShape2D_rupst")
+
+[node name="ResultLabel" type="Label" parent="."]
+process_mode = 3
+offset_left = 424.0
+offset_top = 154.0
+offset_right = 724.0
+offset_bottom = 204.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+script = ExtResource("3_label_effect")
+
+[node name="ScoreLabel" type="Label" parent="."]
+process_mode = 3
+offset_left = 942.0
+offset_top = 33.0
+offset_right = 1116.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
+
+[node name="PauseButtons" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VolumeControl" type="VBoxContainer" parent="PauseButtons"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 200.0
+offset_right = 676.0
+offset_bottom = 280.0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PauseButtons/VolumeControl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Громкость"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="PauseButtons/VolumeControl"]
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+
+[node name="RestartButton" type="Button" parent="PauseButtons"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 300.0
+offset_right = 676.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 24
+text = "restart"
+
+[node name="QuitButton" type="Button" parent="PauseButtons"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 360.0
+offset_right = 676.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 24
+text = "quit"

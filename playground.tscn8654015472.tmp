@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://t4h4i1g5wmcf"]
+
+[ext_resource type="Script" uid="uid://s8yqd6gxepu4" path="res://playground.gd" id="1_rupst"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rupst"]
+size = Vector2(159.084, 10)
+
+[sub_resource type="AudioStream" id="AudioStream_edjgo"]
+
+[node name="Playground" type="Node2D"]
+position = Vector2(-1, -1)
+script = ExtResource("1_rupst")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(2.09556, 600.65)
+scale = Vector2(1.01195, 0.55)
+points = PackedVector2Array(-3, 2, 1149, 2)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(2.09556, 500.65)
+scale = Vector2(1.01195, 0.55)
+points = PackedVector2Array(-3, 2, 507.933, 2, 1149, 2)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="."]
+position = Vector2(3.09556, 450.65)
+scale = Vector2(1.01195, 0.55)
+points = PackedVector2Array(-3, 2, 507.933, 2, 1149, 2)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(2.09556, 550.65)
+scale = Vector2(1.01195, 0.55)
+points = PackedVector2Array(-3, 2, 507.933, 2, 1149, 2)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Bar" type="Line2D" parent="."]
+z_index = 6
+position = Vector2(233.8, 60.5365)
+rotation = 1.5708
+scale = Vector2(1.59642, 2.65)
+points = PackedVector2Array(211, 7, 370, 7)
+width = 5.0
+default_color = Color(0.831925, 0.640711, 0, 1)
+
+[node name="Bar" type="Area2D" parent="Bar"]
+position = Vector2(290.941, 5.99832)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/Bar"]
+position = Vector2(-1.87918, 1.00002)
+shape = SubResource("RectangleShape2D_rupst")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_edjgo")
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 400.0
+offset_top = 300.0
+offset_right = 600.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
